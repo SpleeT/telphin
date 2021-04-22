@@ -1,7 +1,7 @@
 {
     "name": "telphin/api-client",
     "description": "Telphin php unofficial sdk",
-    "license": "SPDX",
+    "license": "MIT",
     "authors": [
         {
             "name": "Belyaev Vladimir",
