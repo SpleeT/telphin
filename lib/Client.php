@@ -3,7 +3,8 @@ namespace Telphin;
 use Telphin\Config;
 use Telphin\Methods;
 /**
- *
+ * Connection with api telphin
+ * Methods - traits
  */
 class Client
 {
