@@ -13,6 +13,7 @@ class Client
   const METHOD_DELETE = 'DELETE';
   const METHOD_PUT    = 'PUT';
   const GRANT_TYPE  = 'client_credentials';
+  public $type = 'client';
   private $client_id;
   private $client_secret;
   private $conf;
@@ -78,11 +79,14 @@ class Client
       ]);
     }
     $result = curl_exec($curlHandler);
+    $codeResponse = curl_getinfo($curlHandler, CURLINFO_RESPONSE_CODE);
     curl_close($curlHandler);
+    if ($codeResponse == "404") return (object)$this->conf->conf("errors.response404");
     $result = json_decode($result);
     return $result;
   }
 
   use Methods\Client\Agent;
+  use Methods\Extension\Extension;
 }
 ?>

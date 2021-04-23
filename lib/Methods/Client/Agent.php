@@ -41,7 +41,7 @@ trait Agent
 
   function getAgentEvents($agent_id, $client_id = "@me")
   {
-    $path = self::$version."/client/{$client_id}/agent/local/{$agent_id}/event";
+    $path = self::$version."/client/{$client_id}/agent/local/{$agent_id}/event/";
     $method = "GET";
     $result = $this->makeRequest($path, $method);
     return $result;
@@ -96,7 +96,7 @@ trait Agent
     return $result;
   }
 
-  function getExtension($data = [], $client_id = "@me")
+  function getExtensionList($data = [], $client_id = "@me")
   {
     $path = self::$version."/client/{$client_id}/extension/";
     $method = "GET";

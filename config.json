@@ -1,14 +1,10 @@
 {
-  "auth" : {
-    "grant_type" : "client_credentials",
-    "client_id" : "c4b58fc675d34f13a86b9f728eb1c084",
-    "client_secret" : "8669d60fe11a435d8317bad0ec302de1"
-  },
   "url" : "https://apiproxy.telphin.ru",
   "versionPrefix" : "/api/ver1.0",
   "timeout" : 30,
   "errors" : {
-    "methodNotAllowed" : "Данный метод не доступен в данной конфигурации SDK",
-    "paramsRequire" : "Не заполнены обязательные параметры запроса"
+    "methodNotAllowed" : {"ERR" : "Данный метод не доступен в данной конфигурации SDK"},
+    "paramsRequire" : {"ERR" : "Не заполнены обязательные параметры запроса"},
+    "response404" : {"ERR" : "Метод не найден, проверьте правильность URL запроса"}
   }
 }
