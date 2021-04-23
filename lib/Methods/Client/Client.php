@@ -46,9 +46,10 @@ trait Client
     return $result;
   }
 
-  function getClExtensionList($data = [], $client_id = "@me")
+  function getClExtension($data = [], int $extension_id = 0, $client_id = "@me")
   {
     $path = self::$version."/client/{$client_id}/extension/";
+    if(!empty($extension_id)) $path .= "{$extension_id}";
     $method = "GET";
     $result = $this->makeRequest($path, $method, $data);
     return $result;
@@ -59,6 +60,22 @@ trait Client
     $path = self::$version."/client/{$client_id}/extension/";
     $method = "POST";
     $result = $this->makeRequest($path, $method, $data, true);
+    return $result;
+  }
+
+  function updClExtension($extension_id, array $data, $client_id = "@me")
+  {
+    $path = self::$version."/client/{$client_id}/extension/{$extension_id}";
+    $method = "PUT";
+    $result = $this->makeRequest($path, $method, $data, true);
+    return $result;
+  }
+
+  function delClExtension($extension_id, $client_id = "@me")
+  {
+    $path = self::$version."/client/{$client_id}/extension/{$extension_id}";
+    $method = "DELETE";
+    $result = $this->makeRequest($path, $method);
     return $result;
   }
 

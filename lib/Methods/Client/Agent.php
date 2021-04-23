@@ -39,9 +39,10 @@ trait Agent
     return $this->conf->conf("errors.methodNotAllowed");
   }
 
-  function getClAgentEvents($agent_id, $client_id = "@me")
+  function getClAgentEvents($agent_id, $event_id = 0, $client_id = "@me")
   {
     $path = self::$version."/client/{$client_id}/agent/local/{$agent_id}/event/";
+    if(!empty($event_id)) $path .= "{$event_id}";
     $method = "GET";
     $result = $this->makeRequest($path, $method);
     return $result;
@@ -55,7 +56,7 @@ trait Agent
     return $result;
   }
 
-  function delClAgentEventByID($agent_id, $event_id, $client_id = "@me")
+  function delClAgentEvent($agent_id, $event_id, $client_id = "@me")
   {
     $path = self::$version."/client/{$client_id}/agent/local/{$agent_id}/event/{$event_id}";
     $method = "DELETE";
@@ -63,7 +64,7 @@ trait Agent
     return $result;
   }
 
-  function getClAgentEventByID($agent_id, $event_id, $client_id = "@me")
+  function getClAgentEventByID($agent_id, $event_id = 0, $client_id = "@me")
   {
     $path = self::$version."/client/{$client_id}/agent/local/{$agent_id}/event/{$event_id}";
     $method = "GET";
