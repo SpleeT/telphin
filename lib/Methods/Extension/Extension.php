@@ -37,6 +37,14 @@ trait Extension
     $result = $this->makeRequest($path, $method, $data);
     return $result;
   }
+
+  function getExtQueueStatus($extension_id)
+  {
+    $path = self::$version."/extension/{$extension_id}/queue/status/";
+    $method = "GET";
+    $result = $this->makeRequest($path, $method);
+    return $result;
+  }
 }
 
 ?>

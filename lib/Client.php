@@ -87,6 +87,7 @@ class Client
   }
 
   use Methods\Client\Agent;
+  use Methods\Client\Client;
   use Methods\Extension\Extension;
 }
 ?>
