@@ -13,6 +13,14 @@ trait Client
     return $result;
   }
 
+  function getClInfo($client_id = "@me")
+  {
+    $path = self::$version."/client/client_info/{$client_id}/";
+    $method = "GET";
+    $result = $this->makeRequest($path, $method);
+    return $result;
+  }
+
   function getClRegStatusLog($data, $order = "desc", $client_id = "@me")
   {
     //if(!@$data['start_datetime'] || !@$data['end_datetime']) return $this->conf->conf("errors.paramsRequire");
@@ -51,6 +59,38 @@ trait Client
     $path = self::$version."/client/{$client_id}/extension/";
     $method = "POST";
     $result = $this->makeRequest($path, $method, $data, true);
+    return $result;
+  }
+
+  function getClExtensionGroup($data = [], $client_id = "@me")
+  {
+    $path = self::$version."/client/{$client_id}/extension_group/";
+    $method = "GET";
+    $result = $this->makeRequest($path, $method, $data);
+    return $result;
+  }
+
+  function addClExtensionGroup(array $data, $client_id = "@me")
+  {
+    $path = self::$version."/client/{$client_id}/extension_group/";
+    $method = "POST";
+    $result = $this->makeRequest($path, $method, $data, true);
+    return $result;
+  }
+
+  function updClExtensionGroup(int $ext_group_id, array $data, $client_id = "@me")
+  {
+    $path = self::$version."/client/{$client_id}/extension_group/{$ext_group_id}";
+    $method = "PUT";
+    $result = $this->makeRequest($path, $method, $data, true);
+    return $result;
+  }
+
+  function delClExtensionGroup(int $ext_group_id, $client_id = "@me")
+  {
+    $path = self::$version."/client/{$client_id}/extension_group/{$ext_group_id}";
+    $method = "DELETE";
+    $result = $this->makeRequest($path, $method);
     return $result;
   }
   /* Records block  */
