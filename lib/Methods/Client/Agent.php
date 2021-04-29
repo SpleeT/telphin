@@ -48,7 +48,7 @@ trait Agent
     return $result;
   }
 
-  function addClAgentEvent($agent_id, $data = [], $client_id = "@me")
+  function addClAgentEvent($agent_id, array $data, $client_id = "@me")
   {
     $path = self::$version."/client/{$client_id}/agent/local/{$agent_id}/event/";
     $method = "POST";
@@ -60,14 +60,6 @@ trait Agent
   {
     $path = self::$version."/client/{$client_id}/agent/local/{$agent_id}/event/{$event_id}";
     $method = "DELETE";
-    $result = $this->makeRequest($path, $method);
-    return $result;
-  }
-
-  function getClAgentEventByID($agent_id, $event_id = 0, $client_id = "@me")
-  {
-    $path = self::$version."/client/{$client_id}/agent/local/{$agent_id}/event/{$event_id}";
-    $method = "GET";
     $result = $this->makeRequest($path, $method);
     return $result;
   }

@@ -46,6 +46,14 @@ trait Client
     return $result;
   }
 
+  function getClCallHistory($data = [], $call_uuid = "", $client_id = "@me")
+  {
+    $path = self::$version."/client/{$client_id}/call_history/{$call_uuid}";
+    $method = "GET";
+    $result = $this->makeRequest($path, $method, $data);
+    return $result;
+  }
+
   function getClExtension($data = [], int $extension_id = 0, $client_id = "@me")
   {
     $path = self::$version."/client/{$client_id}/extension/";
