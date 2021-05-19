@@ -45,6 +45,32 @@ trait Extension
     $result = $this->makeRequest($path, $method);
     return $result;
   }
+
+  function addExtEvent($extension_id)
+  {
+    $path = self::$version."/extension/{$extension_id}/event/";
+    $method = "POST";
+    $result = $this->makeRequest($path, $method);
+    return $result;
+  }
+
+  function getExtEvent($extension_id)
+  {
+    $path = self::$version."/extension/{$extension_id}/event/";
+    $method = "GET";
+    $result = $this->makeRequest($path, $method);
+    return $result;
+  }
+
+  function delExtEvent($extension_id, $event_id)
+  {
+    $path = self::$version."/extension/{$extension_id}/event/{$event_id}";
+    $method = "DELETE";
+    $result = $this->makeRequest($path, $method);
+    return $result;
+  }
+
+
 }
 
 ?>
