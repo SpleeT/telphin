@@ -46,11 +46,11 @@ trait Extension
     return $result;
   }
 
-  function addExtEvent($extension_id)
+  function addExtEvent($extension_id, array $data)
   {
     $path = self::$version."/extension/{$extension_id}/event/";
     $method = "POST";
-    $result = $this->makeRequest($path, $method);
+    $result = $this->makeRequest($path, $method, $data, true);
     return $result;
   }
 
