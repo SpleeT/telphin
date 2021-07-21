@@ -174,6 +174,14 @@ trait Client
     $result = $this->makeRequest($path, $method);
     return $result;
   }
+
+  function getClCurrentCalls($client_id = "@me")
+  {
+    $path = self::$version."/client/{$client_id}/current_calls/";
+    $method = "GET";
+    $result = $this->makeRequest($path, $method);
+    return $result;
+  }
 }
 
 ?>
